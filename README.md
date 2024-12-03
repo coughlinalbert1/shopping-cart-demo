@@ -197,3 +197,36 @@ Allows for file to be extended but closed for modification.
 ### 3. **ProductServiceImpl.java**
 
 Reformated the addProduct methods to only handle retrieving the data from the form and confirming the database entry
+
+
+
+
+## Discount 
+The actual logic for implementing a discount_code was not too difficult. We have to establish the connection to database, perform user authentication, check in the discount_codes table if the code is valid, apply the code to the order, update the new total, and the the user enters credit card info once redirected to payment.jsp.
+
+After entering and clicking pay, the user gets redirected to the orderDetails.jsp and can see the order there. The user will also get an email to the email they used to register an account. This was for the second milestone requirements for implementing a discount.
+
+For the final part we had to use a design pattern, in our case we chose strategy for this. The problem we ran into was that these technologies are not compatible with our MacBooks. We tried for weeks to get stage two for discount functionality to work and with little success, let alone with a design pattern.
+
+We could not get JDK 8 to run with an M2 chip which we found is pretty necessary for this project to run. This codebase does not fail gracefully, especially with dependences that do not work on our computers. We tried new JDKs but there are big compatibility errors with the older dependencies that are deeply embedded into the every part of the application.
+
+We tried new JDKs with MySQL 9.0.1 and some parts would work, but small changes in one part trigger major errors in other parts of the application. To use this version of MySQL we had to update the script to get the transaction and order table to work properly. 
+
+We tried older versions of MySQL but they were not able to be used on our computers. The architecture of the silicon chips is incompatible with JDK 8 and with MySQL 5+. When we use compatible versions of both, the project will work for a while but throughout development it is noticeable it is very unstable.
+
+The two mail dependencies are old and cause major issues but the whole codebase is built off of that DBUtil and MailMessage so altering those causes a need to redesign the whole app.
+
+Next was to attempt to run Docker containers so we can run the code in a self contained environment where we can specify the versions of every dependency. We used Rosetta 2 to run the db and app.
+
+Due to the way the app is structured, we had to use a shell script (we did make the script executable) to introduce environment variables into the containers that was executed when the Dockerfile is .
+
+Quickly we realized that still does not solve the architecture compatibility issues. To solve for that we ran some virtual environment containers that are compatible with these technologies and our computers.
+
+The issue is we spent so long trial and error attempting to have a stable app that consistently works, and we ended up with an older discount functionality that we made that works up until payment.jsp and our handful of other versions that we tweaked differently to find a path forward. 
+
+Now we are left with a working product line and multiple versions of discount functionality that all fail in different ways due to the age of the dependencies and compatibility issues with what we had to work with. 
+
+Our next attempt was going to be to run a windows VM on my machine and then download all the correct dependencies but time has run out. After all the reading and tweaking we have done, it is determined that without a major restructuring of the codebase along with updating the out of date technologies, dependencies, and the incorrect maven project setup, that we are unable to get the app to run on our computers. 
+
+We've used Docker with some complex applications for example a micro-service banking back end API so we had prior knowledge of running containers to solve compatibility issues.
+
