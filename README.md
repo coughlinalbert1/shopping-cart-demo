@@ -1,8 +1,9 @@
 # Online Shopping Cart (E-Commerce Website)
+
 - Youtube Video for introduction, demo and setup for this Project: https://www.youtube.com/watch?v=RgQG0_orFpM
-<!-- - YouTube video for step by step local setup of similar project: https://www.youtube.com/watch?v=mLFPodZO8Iw&t=8s -->
-<!-- Live site url: https://ellisonelectronics.herokuapp.com -->
-This is an E-Commerce Website build for selling of any electronics products online.
+  <!-- - YouTube video for step by step local setup of similar project: https://www.youtube.com/watch?v=mLFPodZO8Iw&t=8s -->
+  <!-- Live site url: https://ellisonelectronics.herokuapp.com -->
+  This is an E-Commerce Website build for selling of any electronics products online.
 
 ### About
 
@@ -18,28 +19,34 @@ Note: The payment page is created only for demo purpose and its not fully integr
 ## Highlights :--
 
 ### The users will get a mail to their registered mail Id during:-
+
 - New User Registration
 - Order Successfully Placed
 - The Item was out of stock while exploring but now it got available in the store
 - Successful shipment and delivery of the Item
 
 ### Technologies used:-
+
 1. Front-End Development:
+
 - HTML
 - CSS
 - Javascript
 - BootStrap
 
 2. Back-End Development:
+
 - Java [JDK 8+]
 - JDBC
 - Servlet
 - JSP
 
 3. Database:
+
 - MySql
 
 ### ================ Software And Tools Required ================
+
 - : Git [https://www.youtube.com/watch?v=gv7VPQ4LZ7g]
 - : Java JDK 8+ [https://www.youtube.com/watch?v=O9PWH9SeTTE]
 - : Eclipse EE (Enterprise Edition) [https://www.youtube.com/watch?v=8aDsEV7txXE]
@@ -49,15 +56,18 @@ Note: The payment page is created only for demo purpose and its not fully integr
 - : MySQL Workbench [https://www.youtube.com/watch?v=t79oCeTXHwg]
 
 ### ================= Dummy Database Initialization =================
+
 STEP 1: Open MySQL Command Prompt or MySQL Workbench
 
 STEP 2: Login to the administrator user of MySql:
-	 ```mysql -u <username> -p``` (Enter Password if asked)
+`mysql -u <username> -p` (Enter Password if asked)
 
 STEP 3: Copy paste and execute the MySQL Query from the following file:-
+
 - Run the Sql Query From this file: [databases/mysql_query.sql](./databases/mysql_query.sql)
 
 ### ======GENERATING GMAIL APP PASSWORD [For Mailing Functionalities]========
+
 Step 1: Create a gmail account or login to existing account in any browser
 
 Step 2 : Go to [https://myaccount.google.com/security](https://myaccount.google.com/security) and check if 2 step verifications is enabled or not, enable it if not enabled
@@ -74,9 +84,10 @@ Step 6: Done : Now continue to importing the project. [Don't share the above pas
 
 Step 1: Open Eclipse Enterprise Edition. [Install, if not already installed.]
 
-Step 2: Click On File > Import > Git > Projects From Git > Clone Uri > Paste The Repository Url as: ```https://github.com/shashirajraja/shopping-cart.git```> Select master Branch > Next > Next > Finish.
+Step 2: Click On File > Import > Git > Projects From Git > Clone Uri > Paste The Repository Url as: `https://github.com/shashirajraja/shopping-cart.git`> Select master Branch > Next > Next > Finish.
 
-Step 3: Go inside ```Java Resources > src > application.properties``` and update the values as below:
+Step 3: Go inside `Java Resources > src > application.properties` and update the values as below:
+
 - a) Update value for db.username and db.password according to your installed mysql credentials.
 - b) Update value for mailer.email and mailer.password, with the same email and app password that you generated earlier in above section [ NOTE:Actual gmail password will not work]
 
@@ -87,72 +98,102 @@ Step 5: Right Click On Project > Build Path > Configure Build Path > Libraries >
 Step 6: Right Click on Project > maven > update project > select force update > apply > close
 
 Step 7: Tomcat Configurations:
+
 - If Tomcat Server is not configured in Eclipse :
-	-  Right Click On Project > Run As > Run On Server > Manually Define a new server > Select server type > select Tomcat v8.0+ > (Select Tomcat V8.0+ Installation Location If Asked) > Next > Add the current project > Finish.
+
+  - Right Click On Project > Run As > Run On Server > Manually Define a new server > Select server type > select Tomcat v8.0+ > (Select Tomcat V8.0+ Installation Location If Asked) > Next > Add the current project > Finish.
 
 - Else If Tomcat Server is already configured in Eclipse:
-	- Right Click On Project > Run As > Run On Server > Select Tomcat Version > Next > Add the project > Finish.
-		<p align='center'>or</p>
-	- You can directly goto server tab, select the tomcat server and use the debug or run button to start the previously ran project
+  - Right Click On Project > Run As > Run On Server > Select Tomcat Version > Next > Add the project > Finish.
+  <p align='center'>or</p>
+  - You can directly goto server tab, select the tomcat server and use the debug or run button to start the previously ran project
 
-Step 8: Check Running The Site At  [http://localhost:8080/shopping-cart/](http://localhost:8080/shopping-cart/)
+Step 8: Check Running The Site At [http://localhost:8080/shopping-cart/](http://localhost:8080/shopping-cart/)
 
-Step 9:  [To Change the Port, if getting error like 'port already in use'] Open The Server Tab > Double Click On Tomcat Server > Ports > Change The Port Number For Http/1.1 To 8083 > Close And Save. Now Start and you can access the project on [http://localhost:8083/shopping-cart/](http://localhost:8083/shopping-cart/)
+Step 9: [To Change the Port, if getting error like 'port already in use'] Open The Server Tab > Double Click On Tomcat Server > Ports > Change The Port Number For Http/1.1 To 8083 > Close And Save. Now Start and you can access the project on [http://localhost:8083/shopping-cart/](http://localhost:8083/shopping-cart/)
 
 Step 10: Default Username And Password For Admin Is "admin@gmail.com" And "admin"
 
 Step 11: The default Username And Password For User Is "guest@gmail.com" And "guest"
 
 ## FAQ
+
 **Question:1** Unable to Connect to Database?
 
 **Answer:** Please check you have installed the mysql correctly and have updated the correct db details in application.properties file. Also you can try doing maven clean install and force update the project and restart.
+
 <hr>
 
 Note:- This is a Sample Project for learning purpose, we have not much considered of web security.
 
 #### Some Screenshots for the project:
+
 - Home Page
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/6161fb90-ac83-445d-9fb2-56681f6a52b4)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/6161fb90-ac83-445d-9fb2-56681f6a52b4)
 - Login Page
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/c5451416-a669-4d76-ad84-9b8ea26bf6b4)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/c5451416-a669-4d76-ad84-9b8ea26bf6b4)
 - Register Page
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/19f06ec9-70aa-4700-8846-a2e6514d88c2)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/19f06ec9-70aa-4700-8846-a2e6514d88c2)
 - Category Wise Product Filter
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/757e552c-1526-4142-869b-ffbf27a232e0)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/757e552c-1526-4142-869b-ffbf27a232e0)
 - Cart Items
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/12963112-1276-49ca-8b9c-f3272c6b9b7b)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/12963112-1276-49ca-8b9c-f3272c6b9b7b)
 - Credit Card Payment
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/990595ce-856c-46fe-8182-052a127d67b4)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/990595ce-856c-46fe-8182-052a127d67b4)
 - Order Details & Status
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/db8b4511-cac0-41df-930a-ef3bdebe5c24)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/db8b4511-cac0-41df-930a-ef3bdebe5c24)
 - User Profile
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/aa22b0cd-726b-4e5c-85cd-5409b7fc5391)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/aa22b0cd-726b-4e5c-85cd-5409b7fc5391)
 
 - Admin Home
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/0e909800-b9a2-4ece-884c-24cdc8ca931a)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/0e909800-b9a2-4ece-884c-24cdc8ca931a)
 - Stock Items
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/e94e519b-e65c-4f51-8b37-e1b555208f2d)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/e94e519b-e65c-4f51-8b37-e1b555208f2d)
 - Shipped Items
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/e34de1d9-91ae-4d3b-a38e-7d78aae1f410)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/e34de1d9-91ae-4d3b-a38e-7d78aae1f410)
 - Recent Orders yet to be shipped
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/ed2df621-3256-41bd-8739-d3872474403c)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/ed2df621-3256-41bd-8739-d3872474403c)
 - Add Product to the stock
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/3f38b7cf-c120-4523-abec-cdb2238c17b0)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/3f38b7cf-c120-4523-abec-cdb2238c17b0)
 - Remove Product from the stock
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/1e9c6565-6a14-4cb3-834e-8d7f5d273927)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/1e9c6565-6a14-4cb3-834e-8d7f5d273927)
 - Update the stock item
-![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/1529a9a7-19a3-4381-ac58-29dbc55229d9)
+  ![image](https://github.com/shashirajraja/shopping-cart/assets/34605595/1529a9a7-19a3-4381-ac58-29dbc55229d9)
 - Sample Email for order placed
-<img width="404" alt="image" src="https://github.com/shashirajraja/shopping-cart/assets/34605595/cb60c616-c32c-42eb-abe5-494d8574c09a">
+  <img width="404" alt="image" src="https://github.com/shashirajraja/shopping-cart/assets/34605595/cb60c616-c32c-42eb-abe5-494d8574c09a">
 
 - Class Diagram
-<img width="589" alt="image" src="https://github.com/shashirajraja/shopping-cart/assets/34605595/d6dbfdb9-5108-4071-b4b6-d055f0370acd">
+  <img width="589" alt="image" src="https://github.com/shashirajraja/shopping-cart/assets/34605595/d6dbfdb9-5108-4071-b4b6-d055f0370acd">
 
 #### "Suggestions and project improvement ideas are welcomed!"
 
 <bold>Thanks a lot,</bold><br/>
-                                                                                                        Project Leader<br/>
-                                                                                                         <b>Shashi Raj</b>
+Project Leader<br/>
+<b>Shashi Raj</b>
 
+    																			# Shopping-cart CSCI 4320 project
 
+## Problem
+
+The biggest problem for the addProduct functions is that it had to handle too many different responsibilities
+
+### Repository Pattern
+
+The **Repository Design Pattern** is used to decouple the business logic from the data access logic.
+
+## Changes and Updates
+
+### 1. **ProductRepository.java**
+
+The `ProductRepository` interface defines the necessary CRUD operations for managing product entities.
+It allows us to add, update, delete, and retrieve products from the data store.
+
+### 2. **ProductRepositoryImpl.java**
+
+This seperated the data access logic.
+This accesses data from the data base
+Allows for file to be extended but closed for modification.
+
+### 3. **ProductServiceImpl.java**
+
+Reformated the addProduct methods to only handle retrieving the data from the form and confirming the database entry
