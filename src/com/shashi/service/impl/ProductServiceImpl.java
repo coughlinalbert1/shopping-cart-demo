@@ -10,68 +10,40 @@ import java.util.List;
 
 import com.shashi.beans.DemandBean;
 import com.shashi.beans.ProductBean;
+import com.shashi.repository.ProductRepository;
+import com.shashi.repository.impl.ProductRepositoryImpl;
 import com.shashi.service.ProductService;
 import com.shashi.utility.DBUtil;
 import com.shashi.utility.IDUtil;
 import com.shashi.utility.MailMessage;
 
 public class ProductServiceImpl implements ProductService {
+	private final ProductRepository productRepository;
+
+    public ProductServiceImpl() {
+        this.productRepository = new ProductRepositoryImpl();
+    }
 
 	@Override
 	public String addProduct(String prodName, String prodType, String prodInfo, double prodPrice, int prodQuantity,
 			InputStream prodImage) {
-		String status = null;
 		String prodId = IDUtil.generateId();
-
 		ProductBean product = new ProductBean(prodId, prodName, prodType, prodInfo, prodPrice, prodQuantity, prodImage);
-
-		status = addProduct(product);
-
-		return status;
+		return addProduct(product);
+		
 	}
 
-	@Override
-	public String addProduct(ProductBean product) {
-		String status = "Product Registration Failed!";
+	 @Override
+	    public String addProduct(ProductBean product) {
+	        if (product.getProdId() == null) {
+	            product.setProdId(IDUtil.generateId());
+	        }
 
-		if (product.getProdId() == null)
-			product.setProdId(IDUtil.generateId());
-
-		Connection con = DBUtil.provideConnection();
-
-		PreparedStatement ps = null;
-
-		try {
-			ps = con.prepareStatement("insert into product values(?,?,?,?,?,?,?);");
-			ps.setString(1, product.getProdId());
-			ps.setString(2, product.getProdName());
-			ps.setString(3, product.getProdType());
-			ps.setString(4, product.getProdInfo());
-			ps.setDouble(5, product.getProdPrice());
-			ps.setInt(6, product.getProdQuantity());
-			ps.setBlob(7, product.getProdImage());
-
-			int k = ps.executeUpdate();
-
-			if (k > 0) {
-
-				status = "Product Added Successfully with Product Id: " + product.getProdId();
-
-			} else {
-
-				status = "Product Updation Failed!";
-			}
-
-		} catch (SQLException e) {
-			status = "Error: " + e.getMessage();
-			e.printStackTrace();
-		}
-
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-
-		return status;
-	}
+	        boolean isSaved = productRepository.save(product);
+	        return isSaved
+	                ? "Product Added Successfully with Product ID: " + product.getProdId()
+	                : "Product Registration Failed!";
+	    }
 
 	@Override
 	public String removeProduct(String prodId) {

@@ -19,14 +19,13 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public String paymentSuccess(String userName, double paidAmount) {
-		String status = "Order Placement Failed!";
+		String status = "Order Placement Failed ";
 
 		List<CartBean> cartItems = new ArrayList<CartBean>();
 		cartItems = new CartServiceImpl().getAllCartItems(userName);
 
 		if (cartItems.size() == 0)
 			return status;
-
 		TransactionBean transaction = new TransactionBean(userName, paidAmount);
 		boolean ordered = false;
 
@@ -62,9 +61,9 @@ public class OrderServiceImpl implements OrderService {
 			ordered = new OrderServiceImpl().addTransaction(transaction);
 			if (ordered) {
 
-				MailMessage.transactionSuccess(userName, new UserServiceImpl().getFName(userName),
-						transaction.getTransactionId(), transaction.getTransAmount());
-
+//				MailMessage.transactionSuccess(userName, new UserServiceImpl().getFName(userName),
+//						transaction.getTransactionId(), transaction.getTransAmount());
+					System.out.println("here");
 				status = "Order Placed Successfully!";
 			}
 		}
